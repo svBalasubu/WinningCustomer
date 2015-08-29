@@ -1,0 +1,169 @@
+﻿@model HDCustomer.Models.OffersModelList
+<link href="~/Content/OfferSection.css" rel="stylesheet">
+<script src="~/Scripts/HDCustomer.js"></script>
+@if (Model != null)
+{
+    @Html.Hidden("hdnUserID", Model.UserID)
+    <table>
+        <tr>
+            <td>
+                <div class="ui-helper-clearfix" id="sampleContainer" style="width: auto;">
+                    <div class="igsb-running-sample sb-min-phone-landscape">
+                        <div tabindex="0" class="ui-iggrid ui-widget ui-helper-clearfix ui-corner-all" id="grid_container" style="position: relative;">
+                            <table class="ui-iggrid-table ui-widget-content" id="grid" role="grid" aria-describedby="grid_container" style="table-layout: fixed;" cellspacing="0" cellpadding="0">
+                                <colgroup><col><col><col></colgroup>
+                                <thead role="rowgroup">
+                                    <tr role="row" data-header-row="">
+                                        <th tabindex="0" class="ui-iggrid-header ui-widget-header" id="grid_Name" role="columnheader" aria-label="Name">
+                                            <span class="ui-iggrid-headertext"><b>Existing Service</b></span>
+                                        </th>
+                                    </tr>
+                                </thead>
+                                <tbody class="ui-widget-content ui-iggrid-tablebody ui-ig-record ui-iggrid-record" role="rowgroup">
+                                    <tr tabindex="0" role="row">
+                                        <td>
+                                            <table>
+                                                <tr>
+                                                    <td>
+                                                        <label><b>Servive Type:  </b></label>
+                                                    </td>
+                                                    <td>
+                                                        <label><b>@Html.Raw(Model.ServiceType)</b></label>
+                                                    </td>
+
+                                                </tr>
+                                                <tr>
+                                                    <td>
+                                                        <label><b>Customer Package Type: </b></label>
+                                                    </td>
+                                                    <td>
+                                                        @if (Model.CustomerType == "Platinum")
+                                                        {
+                                                            <img style="width:150px" src="~/Image/Platinum.png" />
+                                                        }
+                                                        else
+                                                        {
+                                                            <img style="width:150px" src="~/Image/Platinum_Cross.png" />
+                                                        }
+                                                        @if (Model.CustomerType == "Gold")
+                                                        {
+                                                            <img style="width:150px" src="~/Image/Gold.jpg" />
+                                                        }
+                                                        else
+                                                        {
+                                                            <img style="width:150px" src="~/Image/Gold_Cross.jpg" />
+                                                        }
+                                                        @if (Model.CustomerType == "Silver")
+                                                        {
+                                                            <img style="width:150px" src="~/Image/Silver.jpg" />
+                                                        }
+                                                        else
+                                                        {
+                                                            <img style="width:150px" src="~/Image/Silver_Cross.jpg" />
+                                                        }
+                                                        @if (Model.CustomerType == "Bronze")
+                                                        {
+                                                            <img style="width:150px" src="~/Image/Bronze.jpg" />
+                                                        }
+                                                        else
+                                                        {
+                                                            <img style="width:150px" src="~/Image/Bronze_Cross.jpg" />
+                                                        }
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td>
+                                                        <b>Compete With Neighbors :</b>
+                                                    </td>
+                                                    <td>
+                                                        @if (Model.CustomerType == "Platinum")
+                                                        {
+                                                            <label style="color:blue">Congratualtion ! You are Getting Verizon Free Service</label>
+                                                            <a onclick="GetUpgradeOfferDetails('inactive','@Model.UserID'); return false;" style="text-decoration:underline;color:blue">Get More Offers</a>
+                                                        }
+                                                        else
+                                                        {
+                                                            <a onclick="GetUpgradeOfferDetails('inactive','@Model.UserID'); return false;" style="text-decoration:underline;color:blue">Click here</a>
+                                                        }
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td colspan="2">
+                                                        <div class="ui-helper-clearfix" id="sampleContainer" style="width: auto;">
+                                                            <div class="igsb-running-sample sb-min-phone-landscape">
+                                                                <div tabindex="0" class="ui-iggrid ui-widget ui-helper-clearfix ui-corner-all" id="grid_container" style="position: relative;">
+                                                                    <table class="ui-iggrid-table ui-widget-content" id="grid" role="grid" aria-describedby="grid_container" style="table-layout: fixed;" border="0" cellspacing="0" cellpadding="0">
+                                                                        <colgroup><col><col><col></colgroup>
+                                                                        <tbody class="ui-widget-content ui-iggrid-tablebody ui-ig-record ui-iggrid-record" role="rowgroup">
+                                                                            @{
+    decimal totalCost = 0;
+                                                                            }
+                                                                            @if (Model.OffersList != null && Model.OffersList.Count > 0)
+                                                                            {
+                                                                                foreach (var item in Model.OffersList)
+                                                                                {
+                                                                                    if (item != null)
+                                                                                    {
+                                                                                        <tr tabindex="0" role="row">
+                                                                                            <td tabindex="0" role="gridcell" aria-describedby="grid_Name"><img style="width:75px" alt="Speed" src="~/Image/@item.Image" /></td>
+                                                                                            <td tabindex="0" role="gridcell" aria-describedby="grid_Email">@item.Description</td>
+                                                                                            <td tabindex="0" role="gridcell" aria-describedby="grid_Age">$@item.Cost</td>
+                                                                                        </tr>
+                                                                                        decimal cost = 0;
+                                                                                        if (decimal.TryParse(item.Cost, out cost))
+                                                                                        {
+                                                                                            totalCost += cost;
+                                                                                        }
+                                                                                    }
+                                                                                }
+                                                                            }
+                                                                        </tbody>
+                                                                        <tbody class="ui-widget-content ui-iggrid-tablebody ui-ig-record ui-iggrid-record" role="rowgroup">
+                                                                            <tr>
+                                                                                <td></td>
+                                                                                <td><label style="font-size:20px;font-weight:bold;text-align:center">Total Cost:</label></td>
+                                                                                <td><label style="font-size:20px;font-weight:bold">$@totalCost</label></td>
+                                                                            </tr>
+                                                                        </tbody>
+                                                                        <thead role="rowgroup">
+                                                                            <tr role="row" data-header-row="">
+                                                                                <th tabindex="0" class="ui-iggrid-header ui-widget-body" id="" role="columnheader" aria-label="Name">
+                                                                                    <span></span>
+                                                                                </th>
+                                                                                <th tabindex="0" class="ui-iggrid-header ui-widget-body" id="grid_desc" role="columnheader" aria-label="Email">
+                                                                                    <span>Decription</span>
+                                                                                </th>
+                                                                                <th tabindex="0" class="ui-iggrid-header ui-widget-body" id="grid_price" role="columnheader" aria-label="Age">
+                                                                                    <span>Price</span>
+                                                                                </th>
+                                                                            </tr>
+                                                                        </thead>
+                                                                    </table>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </td>
+                                                </tr>
+                                            </table>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </td>
+        </tr>
+    </table>
+    <br />
+    <br />
+    <div id="divUpgradeOfferSection">
+
+    </div>
+}
+
+
+
+
+
+

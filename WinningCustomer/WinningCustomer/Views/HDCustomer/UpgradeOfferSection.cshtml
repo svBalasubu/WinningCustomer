@@ -1,0 +1,105 @@
+﻿@model HDCustomer.Models.OffersModelList
+<link href="~/Content/OfferSection.css" rel="stylesheet">
+@if (Model != null)
+{
+    <table>
+        <tr>
+            <td>
+                <div class="ui-helper-clearfix" id="sampleContainer" style="width: auto;">
+                    <div class="igsb-running-sample sb-min-phone-landscape">
+                        <div tabindex="0" class="ui-iggrid ui-widget ui-helper-clearfix ui-corner-all" id="grid_container" style="position: relative;">
+                            <table class="ui-iggrid-table ui-widget-content" id="grid" role="grid" aria-describedby="grid_container" style="table-layout: fixed;" cellspacing="0" cellpadding="0">
+                                <colgroup><col><col><col></colgroup>
+                                <thead role="rowgroup">
+                                    <tr role="row" data-header-row="">
+                                        <th tabindex="0" class="ui-iggrid-header ui-widget-header" id="grid_Name" role="columnheader" aria-label="Name">
+                                            <span class="ui-iggrid-headertext"><b>Upgrade Service</b></span>
+                                        </th>
+                                    </tr>
+                                </thead>
+                                <tbody class="ui-widget-content ui-iggrid-tablebody ui-ig-record ui-iggrid-record" role="rowgroup">
+                                    <tr tabindex="0" role="row">
+                                        <td>
+                                            <table>
+                                                <tr>
+                                                    <td colspan="2">
+                                                        <div class="ui-helper-clearfix" id="sampleContainer" style="width: auto;">
+                                                            <div class="igsb-running-sample sb-min-phone-landscape">
+                                                                <div tabindex="0" class="ui-iggrid ui-widget ui-helper-clearfix ui-corner-all" id="grid_container" style="position: relative;">
+                                                                    <table class="ui-iggrid-table ui-widget-content" id="grid" role="grid" aria-describedby="grid_container" style="table-layout: fixed;" border="0" cellspacing="0" cellpadding="0">
+                                                                        <colgroup><col><col><col></colgroup>
+                                                                        <tbody class="ui-widget-content ui-iggrid-tablebody ui-ig-record ui-iggrid-record" role="rowgroup">
+                                                                            @Html.Hidden("hdnSelectedOffers", "")
+                                                                            @if (Model.OffersList != null && Model.OffersList.Count > 0)
+                                                                            {
+                                                                                foreach (var item in Model.OffersList)
+                                                                                {
+                                                                                    if (item != null)
+                                                                                    {
+                                                                                        <tr tabindex="0" role="row">
+                                                                                            <td tabindex="0" role="gridcell" aria-describedby="grid_Name">@Html.RadioButton("rdAvailableOffers", false, new { @Onclick = "SaveAvailableOffers('" + item.ProductID + "')" })</td>
+                                                                                            <td tabindex="0" role="gridcell" aria-describedby="grid_Name"><img style="width:75px" alt="Speed" src="~/Image/@item.Image" /></td>
+                                                                                            <td tabindex="0" role="gridcell" aria-describedby="grid_Email">@item.Description</td>
+                                                                                            <td tabindex="0" role="gridcell" aria-describedby="grid_Age">$@item.Cost</td>
+                                                                                        </tr>
+                                                                                    }
+                                                                                }
+                                                                            }
+                                                                        </tbody>
+                                                                        <thead role="rowgroup">
+                                                                            <tr role="row" data-header-row="">
+                                                                                <th tabindex="0" class="ui-iggrid-header ui-widget-body" id="grid_Name" role="columnheader" aria-label="Name">
+                                                                                    <span class="ui-iggrid-headertext"></span>
+                                                                                </th>
+                                                                                <th tabindex="0" class="ui-iggrid-header ui-widget-body" id="grid_Name" role="columnheader" aria-label="Name">
+                                                                                    <span class="ui-iggrid-headertext"></span>
+                                                                                </th>
+                                                                                <th tabindex="0" class="ui-iggrid-header ui-widget-body" id="grid_Email" role="columnheader" aria-label="Email">
+                                                                                    <span class="ui-iggrid-headertext">Decription</span>
+                                                                                </th>
+                                                                                <th tabindex="0" class="ui-iggrid-header ui-widget-body" id="grid_Age" role="columnheader" aria-label="Age">
+                                                                                    <span class="ui-iggrid-headertext">Price</span>
+                                                                                </th>
+                                                                            </tr>
+                                                                        </thead>
+                                                                    </table>
+                                                                    <br />
+                                                                    <table>
+                                                                        <tbody>
+                                                                            <tr>
+                                                                                <td>
+                                                                                    <input type="submit" onclick="SaveProducts('@Model.UserID');return false;" value="Save Offers" />
+                                                                                </td>
+                                                                            </tr>
+                                                                        </tbody>
+                                                                        <tbody id="tbdSuccessMessage" style="display:none">
+                                                                            <tr>
+                                                                                <td>
+                                                                                    <b><label style="color:green">Congratualtions! you have upgraded to </label><label id="lblCustomerType" style="color:darkslateblue;font-size:20px;"></label><label style="color:green"> customer</label></b>
+                                                                                </td>
+                                                                            </tr>
+                                                                        </tbody>
+                                                                    </table>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </td>
+                                                </tr>
+                                            </table>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </td>
+        </tr>
+    </table>
+}
+
+
+
+
+
+

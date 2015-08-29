@@ -1,0 +1,36 @@
+﻿
+@{
+    ViewBag.Title = "Login";
+}
+
+<h2>Login</h2>
+
+<table>
+    <tr>
+        <td>
+            <label><b>User Name:</b></label>
+        </td>
+        <td>
+            <input id="txtUserName" type="text"/>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <label><b>Password:</b></label>
+        </td>
+        <td>
+            <input type="password" id="txtPassword" />
+        </td>
+    </tr>
+    <tr style="">
+        <td>
+            <input type="button" value="Login" onclick="ValidateUserCredentials();"/>
+        </td>
+    </tr>
+</table>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/HDCustomer")
+}
+
+

@@ -1,0 +1,30 @@
+﻿@{
+    ViewBag.Title = "Login";
+}
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Login</title>
+    <link href="~/Content/HDCustomerStyle.css" rel="stylesheet" />
+    <script src="~/Scripts/HDCustomer.js"></script>
+</head>
+<body>
+
+    <div class="wrapper">
+        <div class="container">
+            <h1>Welcome</h1>
+
+            @using (Html.BeginForm("Login", "HDCustomer", FormMethod.Post))
+            {
+                <input name="txtUserName" type="text" placeholder="Username">
+                <input name="txtPassword" type="password" placeholder="Password">
+                <button type="submit" id="login-button">Login</button>
+            }
+
+        </div>
+    </div>
+</body>
+</html>
+
+

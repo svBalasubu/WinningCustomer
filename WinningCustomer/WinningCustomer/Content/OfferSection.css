@@ -1,0 +1,71 @@
+﻿.ui-iggrid table tbody td, .ui-iggrid .ui-iggrid-header, .ui-iggrid table th {
+    padding: 4px;
+}
+.ui-iggrid table th, .ui-iggrid table td {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    vertical-align: middle;
+}
+.ui-iggrid th, .ui-iggrid th.ui-state-default, .ui-iggrid th.ui-state-hover, .ui-iggrid th.ui-state-active {
+    text-align: left;
+    white-space: nowrap;
+    height: 1.6em;
+}
+.ui-iggrid th, .ui-iggrid th.ui-state-default {
+    border-right: 1px solid #777;
+}
+.ui-widget-header {
+    background: #888;
+    border-bottom: 1px solid #777;
+    color: #fff;
+    font-weight: normal;
+}
+.ui-iggrid-table {
+    table-layout: fixed;
+    width: 100%;
+    border-collapse: separate;
+}
+.ui-widget-content {
+    border: 1px solid #bcbcbc;
+    background: #fff;
+    color: #444;
+}
+.ui-helper-clearfix::before, .ui-helper-clearfix::after {
+    content: "";
+    display: table;
+    border-collapse: collapse;
+}
+.ui-widget {
+    font-family: "Segoe UI",Arial,sans-serif;
+    outline: 0;
+    font-size: 1.1em;
+}
+.igsb-running-sample, .ui-iggrid-filterdd, .ui-igedit-dropdown, .ui-igpivot-metadatadropdown, .ui-igpivot-filterdropdown, .ui-iggrid-summaries-dialog, .ui-iggrid-hiding-dropdown-dialog, .ui-dialog {
+    font-size: 12px;
+}
+html, body, h1, h2, h3, h4, p, ul, span, dl {
+    padding: 0;
+    margin: 0;
+    line-height: auto;
+}
+body {
+    font: 16px "Segoe UI", Helvetica, Tahoma, Arial, Verdana, sans-serif;
+    min-width: 280px;
+    min-height: 700px;
+    color: #495555;
+}
+
+.brightness {
+    background-color: white;
+    display: inline-block;
+
+}
+.brightness img:hover {
+    opacity: .5;
+}
+.ui-widget-body {
+    background: #0094ff;
+    border-bottom: 1px solid #0094ff;
+    color: #0094ff;
+    font-weight: normal;
+}
