@@ -2,5 +2,7 @@ language: csharp
 solution: WinningCustomer/WinningCustomer.sln  
 mono:  
 - latest 
+script:
+  - ./build.sh --quiet verify
 
    
